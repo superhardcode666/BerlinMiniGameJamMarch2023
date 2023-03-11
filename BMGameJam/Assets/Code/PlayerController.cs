@@ -9,6 +9,21 @@ public class PlayerController : MonoBehaviour
     private float _activeForwardSpeed;
     private readonly float _forwardAcceleration = 2.5f;
     private Vector3 _lookInput, _screenCenter, _mouseDistance;
+    
+    public static PlayerController Instance { get; private set; }
+    private void Awake() 
+    { 
+        // If there is an instance, and it's not me, delete myself.
+    
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
 
     private void Start()
     {

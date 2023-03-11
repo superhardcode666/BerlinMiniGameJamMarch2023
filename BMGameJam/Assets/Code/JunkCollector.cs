@@ -8,14 +8,15 @@ public class JunkCollector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag("Junk") && other.transform.localScale.magnitude <= size)
+        if (other.CompareTag("Junk"))
+        {
+            var newJunk = other.GetComponent<Junk>();
+            newJunk.isPickedUp = true;
 
-        Junk newJunk = other.GetComponent<Junk>();
-        newJunk.isPickedUp = true;
-        
-        other.transform.parent = transform;
-        size += other.transform.localScale.magnitude;
+            other.transform.parent = transform;
+            size += other.transform.localScale.magnitude;
 
-        OnSizeChange?.Invoke(size);
+            OnSizeChange?.Invoke(size);
+        }
     }
 }
