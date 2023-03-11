@@ -4,44 +4,34 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _airCapacity;
-    [SerializeField] private float _boosterSpeed;
+    [SerializeField] private float forwardSpeed = 25f;
 
-    private Vector3 _startDirection;
-    
-    public float torque;
+    private float _activeForwardSpeed;
+    private float _forwardAcceleration = 2.5f;
 
-    private float turn = 0;
+    public float lookRateSpeed = 90f;
+    private Vector3 _lookInput, _screenCenter, _mouseDistance;
 
-    void Start()
+    private void Start()
     {
-        _startDirection = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), Random.Range(-100, 100));
-        _rigidbody.AddTorque(_startDirection * (torque * -1));
-        _rigidbody.AddForce(_startDirection * _boosterSpeed);
+        _screenCenter.x = Screen.width * 0.5f;
+        _screenCenter.y = Screen.height * 0.5f;
     }
 
     private void Update()
     {
-        GetInput();
-    }
+        _lookInput.x = Input.mousePosition.x;
+        _lookInput.y = Input.mousePosition.y;
 
-    private void GetInput()
-    {
-        turn = Input.GetAxis("Horizontal");
-    }
-    
-    void FixedUpdate()
-    {
-        if (turn != 0)
-        {
-            _rigidbody.AddTorque(_startDirection * (torque * turn));
-        }
-    }
+        _mouseDistance.x = (_lookInput.x - _screenCenter.x) / _screenCenter.y;
+        _mouseDistance.y = (_lookInput.y - _screenCenter.y) / _screenCenter.y;
 
-    private void AddBoost()
-    {
-        float turn = Input.GetAxis("Horizontal");
-        _rigidbody.AddTorque(_startDirection * (torque * turn));
+        _mouseDistance = Vector2.ClampMagnitude(_mouseDistance, 1f);
+        
+        transform.Rotate(-_mouseDistance.y * lookRateSpeed * Time.deltaTime, _mouseDistance.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
+        
+        _activeForwardSpeed = Mathf.Lerp(_activeForwardSpeed, 1 * forwardSpeed, _forwardAcceleration * Time.deltaTime);
+        
+        transform.position += transform.forward * (_activeForwardSpeed * Time.deltaTime);
     }
 }
