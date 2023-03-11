@@ -1,15 +1,13 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float forwardSpeed = 25f;
 
-    private float _activeForwardSpeed;
-    private float _forwardAcceleration = 2.5f;
-
     public float lookRateSpeed = 90f;
+
+    private float _activeForwardSpeed;
+    private readonly float _forwardAcceleration = 2.5f;
     private Vector3 _lookInput, _screenCenter, _mouseDistance;
 
     private void Start()
@@ -27,11 +25,12 @@ public class PlayerController : MonoBehaviour
         _mouseDistance.y = (_lookInput.y - _screenCenter.y) / _screenCenter.y;
 
         _mouseDistance = Vector2.ClampMagnitude(_mouseDistance, 1f);
-        
-        transform.Rotate(-_mouseDistance.y * lookRateSpeed * Time.deltaTime, _mouseDistance.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
-        
+
+        transform.Rotate(-_mouseDistance.y * lookRateSpeed * Time.deltaTime,
+            _mouseDistance.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
+
         _activeForwardSpeed = Mathf.Lerp(_activeForwardSpeed, 1 * forwardSpeed, _forwardAcceleration * Time.deltaTime);
-        
+
         transform.position += transform.forward * (_activeForwardSpeed * Time.deltaTime);
     }
 }
