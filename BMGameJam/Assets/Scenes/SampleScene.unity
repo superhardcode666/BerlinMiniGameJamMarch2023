@@ -651,11 +651,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bf4b62cc94ef549b6547e362973648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRange: 50
-  amountToSpawn: 5000
+  spawnRange: 45
+  amountToSpawn: 4500
   startSafeRange: 10
   junkObjects:
-  - {fileID: 2060753034094074910, guid: 2fe429a2e6f6aef41b633438b406029f, type: 3}
+  - {fileID: 2060753034094074910, guid: bcd107daba6b49544bde05bf53f1e771, type: 3}
+  - {fileID: 2060753034094074910, guid: d4b67bc4cc4caa94fadc328a460072c4, type: 3}
+  - {fileID: 2060753034094074910, guid: 2c55ebb2fc9295144872ed84aa9a1ba1, type: 3}
+  - {fileID: 2060753034094074910, guid: 6db4c2565fd363249b0b2e0281862859, type: 3}
 --- !u!4 &1147797971
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,7 +1390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1803119494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1512,9 +1515,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5976136970135731549, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.099999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976136970135731549, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.099999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976136970135731549, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.099999994
+      objectReference: {fileID: 0}
     - target: {fileID: 8153654722927665698, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
       propertyPath: m_Radius
-      value: 5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153654722927665700, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8153654722927665700, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.22229004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153654722927665700, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153654722927665700, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
+      value: 0.08191649
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153654722927665700, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
+      value: 0.08191649
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153654722927665700, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
+      value: 0.42387325
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153654723650985714, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: forwardSpeed
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8153654723650985715, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
       propertyPath: freeLookCamera

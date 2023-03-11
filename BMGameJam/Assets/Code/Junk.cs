@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Junk : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Junk : MonoBehaviour
     private void Awake()
     {
         _trailRenderer = GetComponent<TrailRenderer>();
+        transform.localScale = new Vector3(1, 1, 1) * Random.Range(1f, 2f);
     }
 
     private void MoveToPlayer()
