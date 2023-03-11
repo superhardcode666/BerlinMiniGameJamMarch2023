@@ -15,10 +15,12 @@ public class Junk : MonoBehaviour
     private void MoveToPlayer()
     {
         Vector3 playerPos = PlayerController.Instance.transform.position;
-
-        if (Vector3.Distance(transform.position, playerPos) > 0.001f)
+        float size = JunkCollector.Instance.size * 0.025f;
+        
+        if (Vector3.Distance(transform.position, playerPos) > size)
         {
-            Vector3.MoveTowards(transform.position, playerPos, homingSpeed);
+            var step =  homingSpeed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, playerPos, step);
         }
         else
         {

@@ -651,8 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bf4b62cc94ef549b6547e362973648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRange: 100
-  amountToSpawn: 100
+  spawnRange: 50
+  amountToSpawn: 5000
   startSafeRange: 10
   junkObjects:
   - {fileID: 2060753034094074910, guid: 2fe429a2e6f6aef41b633438b406029f, type: 3}
@@ -740,7 +740,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164186634}
-  m_LocalRotation: {x: 0.28258038, y: 0.00000001650511, z: -0.0000000048621858, w: 0.95924366}
+  m_LocalRotation: {x: 0.28258038, y: -0.000000016505112, z: 0.000000004862186, w: 0.95924366}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1512,6 +1512,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8153654722927665698, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8153654723650985715, guid: fb2908f65eff1204191096dd5c13c3c2, type: 3}
       propertyPath: freeLookCamera
       value: 
